@@ -62,8 +62,6 @@
         <Member Name="Amount" DisplayFormat="{0:c2}" EditMask="c2" />
       </OwnMembers>
     </Class>
-    <Class Name="Budget.XAF.Model.Sql.FormulaItem" IsVisibleInDashboards="True" IsVisibleInReports="True" />
-    <Class Name="Budget.XAF.Model.Sql.HierarchyUnit" IsVisibleInDashboards="True" IsVisibleInReports="True" />
     <Class Name="Budget.XAF.Model.Sql.Node" IsVisibleInDashboards="True" IsVisibleInReports="True" DefaultListView="Node_ListView" DefaultLookupListView="Node_LookupListView" DefaultDetailView="Node_DetailView" />
     <Class Name="Budget.XAF.Model.Sql.Tree" IsVisibleInDashboards="True" IsVisibleInReports="True" />
     <Class Name="Budget.XAF.Model.Sql.TreeName" IsVisibleInDashboards="True" IsVisibleInReports="True" />
@@ -78,7 +76,6 @@
       </Item>
       <Item Id="ParametersNavigationItem" Caption="Parameters" ImageName="Parameters_16x16" Index="1" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="HierarchyUnitNavigationItem" ViewId="HierarchyUnit_ListView" ImageName="TreeView_16x16" Caption="Hierarchy Units" Index="0" IsNewNode="True" />
           <Item Id="TreeNameNavigationItem" Caption="Tree Names" ViewId="TreeName_ListView" ImageName="AutoExpand_16x16" Index="1" IsNewNode="True" />
           <Item Id="LoadParametersNavigationItem" Caption="Load Parameters" ImageName="ModelEditor_ModelMerge" Index="2" ViewId="LoadParameters_ListView" IsNewNode="True" />
         </Items>
@@ -95,8 +92,6 @@
   <Views>
     <ListView Id="DeleteParameters_BudgetUnitsToDelete_ListView" AllowNew="False" AllowLink="True" AllowDelete="False" AllowUnlink="True" />
     <ListView Id="DeleteParameters_ExecutedBudgetUnitsToDelete_ListView" AllowNew="False" AllowLink="True" AllowDelete="False" AllowUnlink="True" />
-    <ListView Id="HierarchyUnit_LookupListView" AllowDelete="False" AllowNew="False" />
-    <ListView Id="HierarchyUnit_Trees_ListView" AllowNew="False" AllowDelete="False" />
     <ListView Id="LoadTreeParameters_TreesToProcess_ListView" AllowNew="False" AllowDelete="False" AllowLink="True" AllowUnlink="True" />
     <ListView Id="Node_LookupListView" AllowDelete="False" AllowUnlink="True" AllowNew="False" AllowLink="True">
       <Columns>

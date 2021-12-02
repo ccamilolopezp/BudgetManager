@@ -39,7 +39,7 @@ namespace BudgetManager.Module.Controllers
             BusinessObjects.NonPersistent.LoadBudgetTreeParameters parameters = (BusinessObjects.NonPersistent.LoadBudgetTreeParameters)e.PopupWindowViewCurrentObject;
             (new BusinessManagers.ValidationManager()).ValidateLoadBudgetTreeParameters(company, parameters);
             (new BusinessManagers.TreeManagers.BudgetTreeManager()).LoadBudgetTree(company, parameters);
-            Application.ShowViewStrategy.ShowMessage($"Estructuradel arbol {parameters.LoadParameters.TreeName.Name} cargada exitosamente", InformationType.Success, 10000, InformationPosition.Bottom);
+            Application.ShowViewStrategy.ShowMessage($"Estructura del arbol {parameters.LoadParameters.TreeName.Name} cargada exitosamente", InformationType.Success, 10000, InformationPosition.Bottom);
         }
     }
 }

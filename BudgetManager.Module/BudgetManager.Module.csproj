@@ -251,6 +251,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\Icon\Icon BudgetManager.png" />
     <EmbeddedResource Include="Images\Icon\logo Budget Manager.png" />
+    <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Welcome.html" />
   </ItemGroup>
   <ItemGroup>

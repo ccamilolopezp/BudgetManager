@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="Budget.XAF.Model.Sql.FormulaItem" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.XAF.Model.Sql.HierarchyUnit" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="HierarchyUnit_LookupListView" AllowDelete="False" AllowNew="False" />
+    <ListView Id="HierarchyUnit_Trees_ListView" AllowNew="False" AllowDelete="False" />
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="ParametersNavigationItem">
+        <Items Id="Items">
+          <Item Id="HierarchyUnitNavigationItem" ViewId="HierarchyUnit_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>
