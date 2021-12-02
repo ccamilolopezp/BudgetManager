@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="BudgetManager" Logo="Icon.logo Budget Manager" Company="" VersionFormat="">
+  <ActionDesign>
+    <Actions>
+      <Action Id="DeleteValuesController" ImageName="Office2013\DeleteList_16x16" ConfirmationMessage="" />
+      <Action Id="LinkBudgetValuesController" ImageName="Office2013\AddFile_16x16" />
+      <Action Id="LoadBudgetController" ImageName="DevAV\CostAnalysis_16x16" />
+      <Action Id="LoadBudgetTreeController" ImageName="Bar2_16x16" />
+      <Action Id="LoadExecutedBudgetController" ImageName="Clip_16x16" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="Budget.Model.Sql.BudgetAccount" IsVisibleInReports="True" IsVisibleInDashboards="True">
+      <OwnMembers>
+        <Member Name="YearAmount" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="YearExecutedBudget" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="YearRemainingBudget" DisplayFormat="{0:c2}" EditMask="c2" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.Model.Sql.BudgetUnit" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.Model.Sql.ExecutedAccount" IsVisibleInDashboards="True" IsVisibleInReports="True">
+      <OwnMembers>
+        <Member Name="YearAmount" DisplayFormat="{0:c2}" EditMask="c2" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.Model.Sql.ExecutedBudgetUnit" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.Model.Sql.LinkExecutedBudget" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.Model.Sql.LoadParameters">
+      <OwnMembers>
+        <Member Name="AccountColumnStart" ImmediatePostData="True" />
+        <Member Name="LastColumnWithAccount" ImmediatePostData="True" />
+        <Member Name="LastColumnWithValue" ImmediatePostData="True" />
+        <Member Name="TotalAccountColumns" ImmediatePostData="False" />
+        <Member Name="TotalValueColumns" ImmediatePostData="False" />
+        <Member Name="ValueColumnStart" ImmediatePostData="True" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.Model.Sql.PeriodBudgetValue" IsVisibleInDashboards="True" IsVisibleInReports="True">
+      <OwnMembers>
+        <Member Name="PeriodAmount" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="PeriodExecutedBudget" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="PeriodRemainingBudget" DisplayFormat="{0:c2}" EditMask="c2" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.Model.Sql.PeriodExecutedValue" IsVisibleInDashboards="True" IsVisibleInReports="True">
+      <OwnMembers>
+        <Member Name="CalculatedClosingBalance" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="ClosingBalance" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="CreditAmount" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="DebitAmount" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="OpeningBalance" DisplayFormat="{0:c2}" EditMask="c2" />
+        <Member Name="PeriodAmount" DisplayFormat="{0:c2}" EditMask="c2" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.Model.Sql.TransactionBudgetValue" IsVisibleInDashboards="True" IsVisibleInReports="True">
+      <OwnMembers>
+        <Member Name="Amount" DisplayFormat="{0:c2}" EditMask="c2" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.Model.Sql.TransactionExecutedValue" IsVisibleInDashboards="True" IsVisibleInReports="True">
+      <OwnMembers>
+        <Member Name="Amount" DisplayFormat="{0:c2}" EditMask="c2" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Budget.XAF.Model.Sql.FormulaItem" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.XAF.Model.Sql.HierarchyUnit" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.XAF.Model.Sql.Node" IsVisibleInDashboards="True" IsVisibleInReports="True" DefaultListView="Node_ListView" DefaultLookupListView="Node_LookupListView" DefaultDetailView="Node_DetailView" />
+    <Class Name="Budget.XAF.Model.Sql.Tree" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+    <Class Name="Budget.XAF.Model.Sql.TreeName" IsVisibleInDashboards="True" IsVisibleInReports="True" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="BudgetObjectsNavigationItem" Caption="BudgetObjects" ImageName="BO_Opportunity" Index="0" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="CompaniesNavigationItem" Caption="Companies" ImageName="BO_KPI_Definition" Index="0" ViewId="Company_ListView" IsNewNode="True" />
+          <Item Id="TreesNavigationItem" Caption="Trees" ViewId="Tree_ListView" Index="1" ImageName="TreeView_16x16" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="ParametersNavigationItem" Caption="Parameters" ImageName="Parameters_16x16" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="HierarchyUnitNavigationItem" ViewId="HierarchyUnit_ListView" ImageName="TreeView_16x16" Caption="Hierarchy Units" Index="0" IsNewNode="True" />
+          <Item Id="TreeNameNavigationItem" Caption="Tree Names" ViewId="TreeName_ListView" ImageName="AutoExpand_16x16" Index="1" IsNewNode="True" />
+          <Item Id="LoadParametersNavigationItem" Caption="Load Parameters" ImageName="ModelEditor_ModelMerge" Index="2" ViewId="LoadParameters_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Reports" ImageName="Navigation_Item_PivotChart" Index="2" Removed="True" />
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="18.2.10.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="DeleteParameters_BudgetUnitsToDelete_ListView" AllowNew="False" AllowLink="True" AllowDelete="False" AllowUnlink="True" />
+    <ListView Id="DeleteParameters_ExecutedBudgetUnitsToDelete_ListView" AllowNew="False" AllowLink="True" AllowDelete="False" AllowUnlink="True" />
+    <ListView Id="HierarchyUnit_LookupListView" AllowDelete="False" AllowNew="False" />
+    <ListView Id="HierarchyUnit_Trees_ListView" AllowNew="False" AllowDelete="False" />
+    <ListView Id="LoadTreeParameters_TreesToProcess_ListView" AllowNew="False" AllowDelete="False" AllowLink="True" AllowUnlink="True" />
+    <ListView Id="Node_LookupListView" AllowDelete="False" AllowUnlink="True" AllowNew="False" AllowLink="True">
+      <Columns>
+        <ColumnInfo Id="Label" PropertyName="Label" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ReportDataV2_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ReportDataV2">
+              <LayoutItem Id="DisplayName" ViewItem="DisplayName" Index="0" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="ParametersObjectType" ViewItem="ParametersObjectType" Index="1" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="DataTypeCaption" ViewItem="DataTypeCaption" Index="2" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="IsInplaceReport" Index="3" ViewItem="IsInplaceReport" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Tree_LookupListView" AllowNew="False" AllowDelete="False" />
+    <ListView Id="TreeName_LookupListView" AllowNew="False" AllowLink="True" AllowDelete="False" AllowUnlink="True" />
+  </Views>
+</Application>
